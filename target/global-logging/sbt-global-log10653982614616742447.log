@@ -1,0 +1,13 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(compile, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / compile[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /home/nate/IdeaProjects/HomeWork1/target/scala-3.1.3/classes ...[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m[33m-- Unchecked Warning: /home/nate/IdeaProjects/HomeWork1/src/main/scala/MapReduceLogSorter.scala:116:11 [0m[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m116 |[0m      [33mcase[0m v: Tuple2[Double, Double] => logMsgRange(pName)[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m[33m    |[0m           ^[0m[0m
+[0m[[0m[33mwarn[0m] [0m[0m[33m    |[0m       the type test for (Double, Double) cannot be checked at runtime[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[0minfo[0m] [0m[0mdone compiling[0m
+[0m[[0m[0mdebug[0m] [0m[0mForcing garbage collection...[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 1 s, completed Oct 7, 2022, 5:01:07 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m

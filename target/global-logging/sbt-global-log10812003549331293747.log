@@ -1,0 +1,42 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(run src/main/resources/logFile.log src/main/output 1, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Compile / run[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[31merror[0m] [0m[0morg.apache.hadoop.mapred.FileAlreadyExistsException: Output directory file:/home/nate/IdeaProjects/HomeWork1/src/main/output already exists[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapred.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:131)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:279)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:143)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1571)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapreduce.Job$11.run(Job.java:1568)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/javax.security.auth.Subject.doAs(Subject.java:533)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapreduce.Job.submit(Job.java:1568)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapred.JobClient$1.run(JobClient.java:576)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapred.JobClient$1.run(JobClient.java:571)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.security.AccessController.doPrivileged(AccessController.java:712)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/javax.security.auth.Subject.doAs(Subject.java:533)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1878)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapred.JobClient.submitJobInternal(JobClient.java:571)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapred.JobClient.submitJob(JobClient.java:562)[0m
+[0m[[0m[31merror[0m] [0m[0m	at org.apache.hadoop.mapred.JobClient.runJob(JobClient.java:873)[0m
+[0m[[0m[31merror[0m] [0m[0m	at MapReduceLogSorter1$.runMapReduce1(MapReduceLogSorter.scala:98)[0m
+[0m[[0m[31merror[0m] [0m[0m	at MapReduceLogSorter$package$.Main(MapReduceLogSorter.scala:104)[0m
+[0m[[0m[31merror[0m] [0m[0m	at Main.main(MapReduceLogSorter.scala:102)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.reflect.Method.invoke(Method.java:577)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.invokeMain(Run.scala:143)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.execute$1(Run.scala:93)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.$anonfun$runWithLoader$5(Run.scala:120)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run$.executeSuccess(Run.scala:186)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Run.runWithLoader(Run.scala:120)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$bgRunTask$6(Defaults.scala:1981)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.Defaults$.$anonfun$termWrapper$2(Defaults.scala:1920)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.java:23)[0m
+[0m[[0m[31merror[0m] [0m[0m	at scala.util.Try$.apply(Try.scala:213)[0m
+[0m[[0m[31merror[0m] [0m[0m	at sbt.internal.BackgroundThreadPool$BackgroundRunnable.run(DefaultBackgroundJobService.scala:369)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)[0m
+[0m[[0m[31merror[0m] [0m[0m	at java.base/java.lang.Thread.run(Thread.java:833)[0m
+[0m[[0m[31merror[0m] [0m[0m(Compile / [31mrun[0m) org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory file:/home/nate/IdeaProjects/HomeWork1/src/main/output already exists[0m
+[0m[[0m[31merror[0m] [0m[0mTotal time: 1 s, completed Oct 1, 2022, 3:27:27 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m
