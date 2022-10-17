@@ -1,57 +1,66 @@
+import MessageDistributionOverTimeInterval.{Map, Reduce, runMapReduce}
+import ErrorMessageInTimeIntervalMR.*
+import Parameters.*
+import org.apache.hadoop.fs.Path
+import org.apache.hadoop.io.{IntWritable, Text}
+import org.apache.hadoop.mapred.{FileInputFormat, FileOutputFormat, JobClient, JobConf, TextInputFormat, TextOutputFormat}
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.PrivateMethodTester
+import org.scalatest.matchers.*
 
+import scala.io.Source
+import java.nio.file.{Paths, Files}
+import java.time.LocalTime
 import language.deprecated.symbolLiterals
 import org.scalatest.matchers.should.Matchers
 
 class MRTest extends AnyFlatSpec with Matchers with PrivateMethodTester {
-  behavior of "random string generation"
+  behavior of "Map-Reducer"
 
-  private val minStringLength = 1
-  private val maxStringLength = 10
-  private val randomSeed = 1
 
-  val INITSTRING = "Starting the string generation"
- // val init = unit(INITSTRING)
-  //val rsg = RandomStringGenerator((minStringLength, maxStringLength), randomSeed)
+  private val inputToLog: String = "src/main/resources/logFileBig.log"
+  private val outputPath: String = "src/test/output/outdir"
 
-  it should "generate a random string whose length is greater than the min length" in {
-  //  val generationStep = init(rsg)
-    8 >= (minStringLength)
+
+  val run = MessageDistributionOverTimeInterval.runMapReduce(inputToLog, outputPath+"1")
+  it should "generate a file with 4 different message types-MR1" in {
+    val lines: Iterator[String] = Source.fromFile(outputPath + "1/part-00000.csv").getLines
+    lines.foreach { token =>
+      token should contain
+      "WARN|DEBUG|INFO|ERROR"
+    }
   }
 
-  it should "generate two different random strings consecutively" in {
-  //  val generationStep = init(rsg)
-    val string1 = "generationStep._2"
-    val string2 = "generationStep._1.next._2"
-    string1 should not be string2
+  it should "contain a valid log file and output-MR1" in {
+    Files.exists(Paths.get(inputToLog)) shouldBe true
+    Files.exists(Paths.get(outputPath+"1/part-00000.csv")) shouldBe true
+    Files.exists(Paths.get(outputPath+"1/_SUCCESS")) shouldBe true
   }
 
-  it should "locate an instance of the pattern in the generated string" in {
-    val patternString = "([a-c][e-g][0-3]|[A-Z][5-9][f-w]){5,15}"
+  it should "contain a valid regex pattern-MR1" in {
+    val patternString = Parameters.generatingPattern
+    patternString.length should be >= 10;
   }
 
-  it should "return the same input string if the constructed random string is zero length" in {
-    val someString = "someString"
-    val callConstruct = PrivateMethod[String]('constructString)
-    val result:String = "potator"
-    result should fullyMatch regex someString
+  it should "contain a valid time period-MR1" in {
+    val start: LocalTime = LocalTime.parse(Parameters.startTime)
+    val end: LocalTime = LocalTime.parse(Parameters.endTime)
+    start.isBefore(end) shouldBe true
   }
 
-  it should "return a random string whose length is greater or equal to the one of the base string" in {
-    val someString = "someString"
-    val rsg = "RandomStringGenerator((1,10), 1)"
-    val callConstruct = PrivateMethod[String]('constructString)
-    val result:String = rsg invokePrivate callConstruct(someString, 0)
-    result.length shouldBe >= (someString.length)
+  val run2 = ErrorMessageInTimeIntervalMR.runMapReduce(inputToLog, outputPath+"2")
+  it should "contain a valid log file and output-MR2" in {
+    Files.exists(Paths.get(inputToLog)) shouldBe true
+    Files.exists(Paths.get(outputPath + "2/part-00000.csv")) shouldBe true
+    Files.exists(Paths.get(outputPath + "2/_SUCCESS")) shouldBe true
+  }
+  it should "generate a file with 4 different message types-MR2" in {
+    val lines: Iterator[String] = Source.fromFile(outputPath + "2/part-00000.csv").getLines
+    lines.foreach { token =>
+      token should contain
+      "WARN|DEBUG|INFO|ERROR"
+    }
   }
 
-  it should "return a random string that starts with the base string" in {
-    val someString = "someString"
-    val rsg = "RandomStringGenerator((1,10), 1)"
-    val callConstruct = PrivateMethod[String]('constructString)
-    val result:String = rsg invokePrivate callConstruct(someString, 10)
-    result startsWith(someString)
-  }
 
-}
+};

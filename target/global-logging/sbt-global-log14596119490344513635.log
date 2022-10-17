@@ -1,0 +1,19 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(assembly, None, None)[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: assembly[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mMRTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mrandom string generation[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should generate a file with 4 different message types[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should contain a valid log file and output[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should contain a valid regex pattern[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- should contain a valid time period[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 1 second, 820 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 4[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 4, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0mStrategy 'discard' was applied to 328 files (Run the task at debug level to see details)[0m
+[0m[[0m[0minfo[0m] [0m[0mStrategy 'first' was applied to 330 files (Run the task at debug level to see details)[0m
+[0m[[0m[33mwarn[0m] [0m[0mIgnored unknown package option FixedTimestamp(Some(1262304000000))[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 9 s, completed Oct 16, 2022, 6:55:57 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(idea-shell, None, None)[0m
